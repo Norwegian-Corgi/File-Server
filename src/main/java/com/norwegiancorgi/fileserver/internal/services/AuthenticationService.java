@@ -33,7 +33,7 @@ public class AuthenticationService {
      * Creates a new User
      * @param registerRequest Request containing name, email, password and role of the user to be created
      * @return Authentication response when the user is created successfully
-     * @throws UserNotCreatedException
+     * @throws UserNotCreatedException When user is not created
      */
     public AuthenticationResponse register(RegisterRequest registerRequest) throws UserNotCreatedException {
         if (registerRequest.getRequester().equals(Role.ADMIN)) {
@@ -79,7 +79,7 @@ public class AuthenticationService {
     /**
      * Deletes the user and all the files associated with it
      * @param authenticationRequest Request containing email and password
-     * @throws UserNotDeletedException
+     * @throws UserNotDeletedException When the user is not deleted
      */
     public void delete(AuthenticationRequest authenticationRequest) throws UserNotDeletedException {
         final Userz userz;
@@ -124,6 +124,6 @@ public class AuthenticationService {
      */
     private Userz getUser(String email, String password) throws UserNotFoundException {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-        return userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException(String.format("No user found with the email: {}", email)));
+        return userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException(String.format("No user found with the email: %s", email)));
     }
 }
