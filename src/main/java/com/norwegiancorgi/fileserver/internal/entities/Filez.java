@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity

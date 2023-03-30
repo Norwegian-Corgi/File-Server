@@ -79,16 +79,14 @@ public class AuthenticationService {
     /**
      * Deletes the user and all the files associated with it
      * @param authenticationRequest Request containing email and password
-     * @throws IOException
+     * @throws UserNotDeletedException
      */
     public void delete(AuthenticationRequest authenticationRequest) throws UserNotDeletedException {
         final Userz userz;
         try {
             userz = this.getUser(authenticationRequest.getEmail(), authenticationRequest.getPassword());
             FileUtil.deleteFiles(userz.getId().toString());
-        } catch (UserNotFoundException e) {
-            throw new UserNotDeletedException(e);
-        } catch (IOException e) {
+        } catch (UserNotFoundException | IOException e) {
             throw new UserNotDeletedException(e);
         }
         userRepository.delete(userz);
@@ -120,9 +118,9 @@ public class AuthenticationService {
 
     /**
      * Authenticates the email and password and returns the user with the provided email
-     * @param email
-     * @param password
-     * @return
+     * @param email User's email
+     * @param password User's password
+     * @return The user
      */
     private Userz getUser(String email, String password) throws UserNotFoundException {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));

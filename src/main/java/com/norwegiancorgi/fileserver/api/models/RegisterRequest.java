@@ -2,7 +2,6 @@ package com.norwegiancorgi.fileserver.api.models;
 
 import com.norwegiancorgi.fileserver.internal.enums.Role;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class RegisterRequest {

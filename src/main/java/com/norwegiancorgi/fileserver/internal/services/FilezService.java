@@ -43,8 +43,7 @@ public class FilezService {
         } catch (UserNotFoundException e) {
             throw new FilesNotFetchedException(e);
         }
-        final List<Filez> files = filezRepository.findAllByUserz(userz);
-        return files;
+        return filezRepository.findAllByUserz(userz);
     }
 
     public ResponseEntity<Resource> getFile(UUID uuid) throws FileNotFoundException {
