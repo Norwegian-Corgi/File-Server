@@ -1,0 +1,33 @@
+#version: '1.0'
+services:
+  db:
+    image: postgres
+    container_name: server-docker-db
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: server
+    ports:
+      - target: 5432
+        published: 5433
+        protocol: tcp
+        mode: host
+    networks:
+      - backdb
+    expose:
+      - 5433
+
+  back:
+    build: /file-server
+    image: file-server
+    container_name: server-backend
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
+    networks:
+      - backdb
+
+networks:
+  backdb:
+    driver: bridge
