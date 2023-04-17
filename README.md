@@ -14,7 +14,9 @@ In order to run the file server locally, you will need the following:
 Steps:
 - Clone the repository
 - Build the project
-- Run ``docker-compose up``
+- Run ``start.bat/start.sh``
+
+The file server should start with a default user with email `test@email.com` and password `703f9503bb8b4ddae48725cdc73857e44e56677a7a500d6037028a2d6ca0859c`
 
 ## Endpoints
 
@@ -33,16 +35,13 @@ This endpoint requires the following object in the request body:
     "email": USER_EMAIL,
     "password": PASSWORD,
     "role": ROLE_OF_USER,
-    "requester": ROLE_OF_REQUESTER
+    "requester": UUID_OF_REQUESTER
 }
 ````
 
 **ROLE_OF_USER** can have two values:
 - ADMIN
 - USER
-
-**ROLE_OF_REQUESTER** can only be *ADMIN* as only admins are allowed to 
-new users.
 
 The response of the request looks as following:
 ````
