@@ -36,7 +36,8 @@ public class AuthenticationService {
      * @throws UserNotCreatedException When user is not created
      */
     public AuthenticationResponse register(RegisterRequest registerRequest) throws UserNotCreatedException {
-        if (registerRequest.getRequester().equals(Role.ADMIN)) {
+        final Userz requester = userRepository.findById(registerRequest.getRequester()).orElseThrow(() -> new UserNotCreatedException("Requester not found"));
+        if (requester.getRole().equals(Role.ADMIN)) {
             final Userz createdUser = this.createUser(registerRequest);
             try {
                 FileUtil.createFolder(createdUser.getId().toString());

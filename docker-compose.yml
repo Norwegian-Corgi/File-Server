@@ -18,7 +18,7 @@ services:
       - 5433
 
   back:
-    build: /file-server
+    build: .
     image: file-server
     container_name: server-backend
     ports:
