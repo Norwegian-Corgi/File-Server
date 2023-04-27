@@ -13,7 +13,7 @@ In order to run the file server locally, you will need the following:
 ### Steps
 - Clone the repository
 - Go to `/frontend/.env` and replace `ENTER_YOUR_IP_HERE` with the IP address of the system the server is to run on.
-- Run `start.bat/start.sh`
+- Run `start.bat`
 
 The file server should start with a default user with email `admin@mail.com` and password `admin`.
 
