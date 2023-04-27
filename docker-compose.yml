@@ -1,4 +1,8 @@
-#version: '1.0'
+version: '3'
+networks:
+  file-server-network:
+    driver: bridge
+
 services:
   db:
     image: postgres
@@ -13,12 +17,13 @@ services:
         protocol: tcp
         mode: host
     networks:
-      - backdb
+      - file-server-network
     expose:
       - 5433
 
-  back:
-    build: .
+  backend:
+    build:
+      context: ./backend
     image: file-server
     container_name: server-backend
     ports:
@@ -26,8 +31,16 @@ services:
     depends_on:
       - db
     networks:
-      - backdb
+      - file-server-network
 
-networks:
-  backdb:
-    driver: bridge
+  frontend:
+    build:
+      context: ./frontend
+    image: server-front
+    container_name: server-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - file-server-network

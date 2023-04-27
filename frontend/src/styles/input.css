@@ -1,0 +1,20 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 24px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.input-field {
+    border: solid 1px var(--primary-color);
+    border-radius: 10px;
+    line-height: 2rem;
+    width: clamp(200px, 20vw, 50vw);
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
