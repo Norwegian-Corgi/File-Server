@@ -1,9 +1,8 @@
 package com.norwegiancorgi.fileserver.internal.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.UUID;
 
 @Data
@@ -31,9 +30,5 @@ public class Filez {
     @NonNull
     @Column(name = "downloads", nullable = false)
     private Integer numberOfDownloads;
-    @ManyToOne
-    @JoinColumn(name = "user_uuid", nullable = false)
-    @NonNull
-    @JsonIgnore
-    private Userz userz;
+    private String userEmail;
 }

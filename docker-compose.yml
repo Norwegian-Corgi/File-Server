@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 networks:
   file-server-network:
     driver: bridge
@@ -8,9 +8,9 @@ services:
     image: postgres
     container_name: server-docker-db
     environment:
-      POSTGRES_PASSWORD: root
-      POSTGRES_USER: root
-      POSTGRES_DB: server
+      POSTGRES_PASSWORD: { DB_PASSWORD }
+      POSTGRES_USER: { DB_USER }
+      POSTGRES_DB: fileserver
     ports:
       - target: 5432
         published: 5433
@@ -32,6 +32,8 @@ services:
       - db
     networks:
       - file-server-network
+    env_file:
+      - .env
 
   frontend:
     build:
@@ -44,3 +46,5 @@ services:
       - backend
     networks:
       - file-server-network
+    env_file:
+      - .env
