@@ -11,4 +11,7 @@ export default defineNuxtConfig({
       serverIp: process.env.NUXT_PUBLIC_SERVER_IP,
     },
   },
+  devServer: {
+    host: "0.0.0.0",
+  },
 });
