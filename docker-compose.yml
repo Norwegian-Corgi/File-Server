@@ -19,7 +19,7 @@ services:
   backend:
     build:
       context: ./backend
-    image: file-server
+    image: backend
     container_name: server-backend
     ports:
       - 8081:8081
@@ -33,7 +33,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    image: server-front
+    image: frontend
     container_name: server-frontend
     ports:
       - 3000:3000
