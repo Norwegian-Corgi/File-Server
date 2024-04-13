@@ -12,14 +12,9 @@ services:
       POSTGRES_USER: DB_USER
       POSTGRES_DB: fileserver
     ports:
-      - target: 5432
-        published: 5433
-        protocol: tcp
-        mode: host
+      - 5432:5432
     networks:
       - file-server-network
-    expose:
-      - 5433
 
   backend:
     build:

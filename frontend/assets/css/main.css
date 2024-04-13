@@ -1,3 +1,7 @@
+:root {
+  --main-bg-color: #001;
+}
+
 html,
 body,
 p {
@@ -8,18 +12,7 @@ p {
     sans-serif;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
-.m-1 {
-  margin: 1rem;
-}
-
-.ml-1 {
-  margin-left: 1rem;
-}
-
-.mr-1 {
-  margin-right: 1rem;
+html,
+body {
+  background-color: var(--main-bg-color);
 }

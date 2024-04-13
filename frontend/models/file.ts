@@ -6,3 +6,5 @@ export type UserFile = {
   path: string;
   userEmail: string;
 };
+
+export type UserFileWithClass = UserFile & { class: string };
