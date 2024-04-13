@@ -1,21 +1,10 @@
 <template>
-  <header class="navigation-bar">
+  <header class="h-16 flex justify-between items-center px-8 bg-primary">
     <h1>File Server</h1>
-    <p class="clickable" @click="logout">Logout</p>
+    <p class="cursor-pointer" @click="logout">Logout</p>
   </header>
 </template>
 
 <script setup lang="ts">
 const { logout } = useKeycloak();
 </script>
-
-<style scoped>
-.navigation-bar {
-  display: flex;
-  background-color: rgb(84, 126, 215);
-  height: 4rem;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-</style>

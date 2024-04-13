@@ -8,16 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start": "node ./.output/server/index.mjs"
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.15.2",
     "keycloak-js": "^24.0.2",
     "nuxt": "^3.11.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
-  },
-  "devDependencies": {
-    "@element-plus/nuxt": "^1.0.8",
-    "element-plus": "^2.6.3"
   }
 }
